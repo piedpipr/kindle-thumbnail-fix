@@ -1,0 +1,1 @@
+#Kindle Dirs and Connection Confirmation

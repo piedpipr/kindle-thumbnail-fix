@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">18</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">aeab6f72-d1bc-4b1b-aa6f-321340bfd4c8</dc:identifier>
+        <dc:title>Among the Dead Cities</dc:title>
+        <dc:creator opf:file-as="Grayling, A.C." opf:role="aut">A.C. Grayling</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (5.11.0) [https://calibre-ebook.com]</dc:contributor>
+        <dc:date>2011-11-07T00:00:00+00:00</dc:date>
+        <dc:publisher>Bloomsbury UK</dc:publisher>
+        <dc:identifier opf:scheme="MOBI-ASIN">45965a45-70af-4216-8ab4-e6ad200a1f80</dc:identifier>
+        <dc:language>eng</dc:language>
+        <meta name="calibre:author_link_map" content="{&quot;A.C. Grayling&quot;: &quot;&quot;}"/>
+        <meta name="calibre:timestamp" content="2021-02-19T20:02:47.099813+00:00"/>
+        <meta name="calibre:title_sort" content="Among the Dead Cities"/>
+    </metadata>
+    <guide>
+        <reference type="cover" title="Cover" href="cover.jpg"/>
+    </guide>
+</package>
