@@ -1,4 +1,3 @@
-from os.path import dirname
 import sys
 import pyudev
 from threading import Thread

@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 import os
+import shutil
+import glob
+import getpass
 from package.parse_meta import get_esin
 def find_and_rename(directory):
     os.chdir(directory);
+    user = getpass.getuser()
+    files = os.listdir('/media/piedpipr/')
+    print(files)
+    
     pwd = os.getcwd();
 
     dirs = os.listdir()
@@ -17,7 +24,18 @@ def find_and_rename(directory):
                 if os.path.isdir(subsubdir):
                     os.chdir(subsubdir);
                     if os.path.exists("cover.jpg") & os.path.exists("metadata.opf"):
-                        print (get_esin("metadata.opf"));
+                        esin = get_esin("metadata.opf");
+                        print(esin)
+                        this_dir = os.getcwd();
+                        oldname_cover = "cover.jpg"
+                        oldname_book = "*.mobi"
+                        dest_cover = "/media/piedpipr/Kindle/system/thumbnails/thumbnails_%s_EBOK_portrait.jpeg" % esin
+                        shutil.copy2(oldname_cover, dest_cover, follow_symlinks=True)
+
+                        for file in glob.glob(r'*.mobi'):
+                            dest_book = "/media/piedpipr/Kindle/documents/%s" % file
+                            shutil.copy2(file, dest_book, follow_symlinks=True)
+
                     continue;
                 continue;
             continue;
