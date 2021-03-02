@@ -29,7 +29,7 @@ def find_and_rename(directory):
                         this_dir = os.getcwd();
                         oldname_cover = "cover.jpg"
                         oldname_book = "*.mobi"
-                        dest_cover = "/media/piedpipr/Kindle/system/thumbnails/thumbnail_%s_EBOK_portrait.jpeg" % esin
+                        dest_cover = "/media/piedpipr/Kindle/system/thumbnails/thumbnail_%s_EBOK_portrait.jpg" % esin
                         shutil.copy2(oldname_cover, dest_cover, follow_symlinks=True)
 
                         for file in glob.glob(r'*.mobi'):
