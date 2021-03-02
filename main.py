@@ -1,8 +1,9 @@
+from os.path import dirname
 import sys
 import pyudev
 from threading import Thread
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QApplication, QHBoxLayout, QPushButton, QLabel, QWidget, QFileDialog, QLineEdit
+from PyQt5.QtWidgets import QApplication, QHBoxLayout, QPushButton, QLabel, QWidget, QFileDialog, QLineEdit, QProgressBar
 from PyQt5.QtGui import QMovie
 from package.find_and_rename import find_and_rename
 
@@ -28,9 +29,21 @@ def app():
             connectionThread.start()
 
         def getdir():
-            dir = str(QFileDialog.getExistingDirectory())
-            dirLine.setText(dir)
-            return dir
+            dirname = str(QFileDialog.getExistingDirectory())
+            dirLine.setText(dirname)
+            return dirname
+
+        def process_file():
+            for n in range(101):
+                progress.setValue(n)
+            x = dirLine.text()
+            find_and_rename(x)
+            helloMsg.setText("Books Transfered!")
+
+
+
+
+
 
         app = QApplication(sys.argv)
         window = QWidget()
@@ -39,8 +52,13 @@ def app():
         helloMsg = QLabel("Please Reconnect Kindle", parent=window)
         helloMsg.move(200, 150)
 
+        progress = QProgressBar(parent=window)
+        progress.setValue(0)
+        progress.setGeometry(QtCore.QRect(30, 200, 440, 20))
+
         dirLine = QLineEdit("Select Calibre Librebry Directory", parent=window)
         dirLine.setGeometry(QtCore.QRect(30, 230, 440, 20))
+        
         loader = QLabel(parent=window)
         loader.setGeometry(QtCore.QRect(220, 25, 100, 100))
         movie = QMovie("connected.gif")
@@ -52,7 +70,7 @@ def app():
         button1 = QPushButton('Select Folder')
         button1.clicked.connect(getdir)
         button2 = QPushButton('Send To Kindle')
-        button2.clicked.connect(getdir)
+        button2.clicked.connect(process_file)
         layout.addWidget(button1)
         layout.addWidget(button2)
         window.setLayout(layout)

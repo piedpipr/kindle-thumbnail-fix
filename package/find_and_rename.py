@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import os
 from package.parse_meta import get_esin
-def find_and_rename():
+def find_and_rename(directory):
+    os.chdir(directory);
     pwd = os.getcwd();
 
     dirs = os.listdir()
@@ -17,12 +18,13 @@ def find_and_rename():
                     os.chdir(subsubdir);
                     if os.path.exists("cover.jpg") & os.path.exists("metadata.opf"):
                         print (get_esin("metadata.opf"));
-                        os.rename("*.mobi",kindle_book_dir) ## Kindle and Copy Functon Need To Be Added
-                        os.rename("cover.jpg", kindle_thumb_dir)## Kindle and Copy Functon Need To Be Added
                     continue;
                 continue;
             continue;
         continue;
-    return ("File Processed Succcessfully")
+    print("Done")
+    
+
+   
 
     
